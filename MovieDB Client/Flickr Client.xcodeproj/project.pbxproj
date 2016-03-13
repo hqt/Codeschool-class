@@ -11,6 +11,7 @@
 		D63B82901C93DB1E006FCA69 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B828F1C93DB1E006FCA69 /* JSONHelper.swift */; };
 		D63B82921C93DB62006FCA69 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82911C93DB62006FCA69 /* FilmModel.swift */; };
 		D63B82941C944D85006FCA69 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82931C944D85006FCA69 /* APIHelper.swift */; };
+		D63B82961C95EB3B006FCA69 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82951C95EB3B006FCA69 /* NetworkHelper.swift */; };
 		D63EA9C91C92079500236FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA9C81C92079500236FB1 /* AppDelegate.swift */; };
 		D63EA9CE1C92079500236FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D63EA9CC1C92079500236FB1 /* Main.storyboard */; };
 		D63EA9D01C92079500236FB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D63EA9CF1C92079500236FB1 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		D63B828F1C93DB1E006FCA69 /* JSONHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		D63B82911C93DB62006FCA69 /* FilmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		D63B82931C944D85006FCA69 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		D63B82951C95EB3B006FCA69 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		D63EA9C51C92079500236FB1 /* Flickr Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63EA9C81C92079500236FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D63EA9CD1C92079500236FB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				D63B828F1C93DB1E006FCA69 /* JSONHelper.swift */,
 				D63B82911C93DB62006FCA69 /* FilmModel.swift */,
 				D63B82931C944D85006FCA69 /* APIHelper.swift */,
+				D63B82951C95EB3B006FCA69 /* NetworkHelper.swift */,
 			);
 			name = configuration;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D63EA9C91C92079500236FB1 /* AppDelegate.swift in Sources */,
+				D63B82961C95EB3B006FCA69 /* NetworkHelper.swift in Sources */,
 				D63EA9E11C92FCD000236FB1 /* FilmCell.swift in Sources */,
 				D63EA9E41C92FFBE00236FB1 /* Constant.swift in Sources */,
 				D63B82901C93DB1E006FCA69 /* JSONHelper.swift in Sources */,

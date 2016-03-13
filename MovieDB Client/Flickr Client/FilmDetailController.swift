@@ -20,6 +20,8 @@ class FilmDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpTitleBar()
+        
         let fullSizeUrl = NSURL(string: APIHelper.getImageFullSizeUrl(film.posterPath))
         let thumbnailSizeUrl = NSURL(string: APIHelper.getThumbnailImageUrl(film.posterPath))
         
@@ -59,5 +61,29 @@ class FilmDetailController: UIViewController {
         
         
         self.filmImage.setImageWithURL(NSURL(string: APIHelper.getImageFullSizeUrl(film.posterPath))!)
+    }
+    
+    func setUpTitleBar() {
+        // create UILabel
+        let titleLabel = UILabel()
+        
+        let shadow = NSShadow()
+        shadow.shadowColor = UIColor.redColor().colorWithAlphaComponent(0.5)
+        shadow.shadowOffset = CGSizeMake(2, 2);
+        shadow.shadowBlurRadius = 2;
+        
+        // create decorated text
+        let titleText = NSAttributedString(string: film.title, attributes: [
+            NSFontAttributeName : UIFont.boldSystemFontOfSize(20),
+            NSForegroundColorAttributeName : UIColor(red: 0.41, green: 0.128, blue: 0.185, alpha: 0.8),
+            NSShadowAttributeName : shadow
+            ])
+        
+        titleLabel.attributedText = titleText
+        titleLabel.sizeToFit()
+        
+        // set to navigation bar
+        navigationItem.titleView = titleLabel
+
     }
 }

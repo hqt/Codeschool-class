@@ -24,6 +24,8 @@ class FilmListController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var refreshControl: UIRefreshControl!
     
+    var loadingControl: UIActivityIndicatorView!
+    
     var filmCollection: [FilmModel] = []
     var selectedFilmCollection: [FilmModel] = []
     
@@ -32,9 +34,39 @@ class FilmListController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpNavigationBar()
+        setUpLoadingBar()
         setUpSearchBar()
         setUpRefreshControl()
-        setUpTableView()
+        
+        // stimulate slow network
+        NetworkHelper.delay(2) {
+            self.setUpTableView()
+            
+        }
+    }
+    
+    func setUpLoadingBar() {
+        loadingControl = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        loadingControl.center = self.view.center
+        loadingControl.startAnimating()
+        self.view.addSubview(loadingControl)
+    }
+    
+    func setUpNavigationBar() {
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.tintColor = UIColor(red: 1.0, green: 0.25, blue: 0.25, alpha: 0.8)
+            
+            let shadow = NSShadow()
+            shadow.shadowColor = UIColor.grayColor().colorWithAlphaComponent(1)
+            shadow.shadowOffset = CGSizeMake(2, 2);
+            shadow.shadowBlurRadius = 5;
+            navigationBar.titleTextAttributes = [
+                NSFontAttributeName : UIFont.boldSystemFontOfSize(30),
+                NSForegroundColorAttributeName : UIColor(red: 0.5, green: 0.15, blue: 0.15, alpha: 0.8),
+                NSShadowAttributeName : shadow
+            ]
+        }
     }
     
     func setUpSearchBar() {
@@ -82,7 +114,7 @@ class FilmListController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // using closure for making constant base on condition
         let url: NSURL = {
-            if tabType == TabType.NOW_PLAYING {
+            if self.tabType == TabType.NOW_PLAYING {
                 return NSURL(string: APIHelper.getNowPlayingAPI())!
             } else {
                 return NSURL(string: APIHelper.getTopRatedAPI())!
@@ -108,7 +140,14 @@ class FilmListController: UIViewController, UITableViewDataSource, UITableViewDe
                     if (self.refreshControl.refreshing) {
                         self.refreshControl.endRefreshing()
                     }
+                    
+                    // remove loading 
+                    self.loadingControl.stopAnimating()
                 }
+            } else {
+                let alert = UIAlertController(title: "Error!", message:"Getting data error ...", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+                self.presentViewController(alert, animated: true){}
             }
         })
         
@@ -120,7 +159,7 @@ class FilmListController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! FilmDetailController
         let indexPath = filmTableView.indexPathForCell(sender as! UITableViewCell)
-        vc.film = self.filmCollection[indexPath!.row]
+        vc.film = self.selectedFilmCollection[indexPath!.row]
     }
     
     /////////////////////////////////////////////////////////////////////////////////////////////
@@ -185,20 +224,18 @@ class FilmListController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
-            print(searchText)
-            //selectedFilmCollection = [FilmModel]()
+            selectedFilmCollection = []
             for film in filmCollection {
-                if film.title.lowercaseString.rangeOfString(searchText) != nil {
-                    print(film.title)
+                if film.title.rangeOfString(searchText) != nil {
                     selectedFilmCollection.append(film)
                 }
+            }
+            if searchText == "" {
+                selectedFilmCollection = filmCollection
             }
         } else {
             //selectedFilmCollection = filmCollection
         }
-        
-        print(selectedFilmCollection.count)
-        
         filmTableView.reloadData()
     }
 }
