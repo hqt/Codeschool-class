@@ -9,8 +9,7 @@
 import UIKit
 import AFNetworking
 
-class FilmListController: UIViewController, UITableViewDataSource, UITableViewDelegate,
-                            UISearchBarDelegate, UISearchResultsUpdating {
+class FilmListController: UIViewController, UISearchResultsUpdating {
     
     enum TabType {
         case NOW_PLAYING
@@ -155,87 +154,9 @@ class FilmListController: UIViewController, UITableViewDataSource, UITableViewDe
 
     }
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! FilmDetailController
         let indexPath = filmTableView.indexPathForCell(sender as! UITableViewCell)
         vc.film = self.selectedFilmCollection[indexPath!.row]
-    }
-    
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    // Table View Delegate //////////////////////////////////////////////////////////////////////
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("com.hqt.flickr.cell", forIndexPath: indexPath) as! FilmCell
-        let film = selectedFilmCollection[indexPath.row]
-        cell.filmDescriptionTextView.text = film.overview
-        cell.filmTitleTextView.text = film.title
-        
-        // make fading effect for image when downloading from network
-        let url = NSURL(string: APIHelper.getThumbnailImageUrl(film.posterPath))
-        let request = NSURLRequest(URL: url!)
-        
-        cell.filmImageView.setImageWithURLRequest(request, placeholderImage: nil,
-            success:{(imageRequest: NSURLRequest?, imageResponse: NSURLResponse?, image: UIImage?) -> Void in
-                // imageResponse will be nil if image is loaded from cache
-                if imageResponse != nil {
-                    // intialize property before animate
-                    cell.filmImageView.alpha = 0.0
-                    cell.filmImageView.image = image
-                    // make animation
-                    UIView.animateWithDuration(1, animations: {() -> Void in
-                        cell.filmImageView.alpha = 1.0
-                    })
-                } else {
-                    // from cache. simply load
-                    cell.filmImageView.image = image
-                }
-            },
-            failure: {(imageRequest: NSURLRequest?, imageResponse: NSURLResponse?, error: NSError?) -> Void in
-                print("loading image from network failed")
-            })
-        
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectedFilmCollection.count
-    }
-    
-    // remove background when click
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-    
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    // Search Bar Delegate //////////////////////////////////////////////////////////////////////
-    
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        self.searchBar.showsCancelButton = true
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-    }
-    
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
-            selectedFilmCollection = []
-            for film in filmCollection {
-                if film.title.rangeOfString(searchText) != nil {
-                    selectedFilmCollection.append(film)
-                }
-            }
-            if searchText == "" {
-                selectedFilmCollection = filmCollection
-            }
-        } else {
-            //selectedFilmCollection = filmCollection
-        }
-        filmTableView.reloadData()
     }
 }

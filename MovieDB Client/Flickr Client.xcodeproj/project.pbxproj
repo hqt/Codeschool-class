@@ -8,37 +8,43 @@
 
 /* Begin PBXBuildFile section */
 		91102E57A43E9D38EFA8D1F9 /* Pods_Flickr_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840A028CDADDADA7BA12EC12 /* Pods_Flickr_Client.framework */; };
-		D63B82901C93DB1E006FCA69 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B828F1C93DB1E006FCA69 /* JSONHelper.swift */; };
-		D63B82921C93DB62006FCA69 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82911C93DB62006FCA69 /* FilmModel.swift */; };
-		D63B82941C944D85006FCA69 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82931C944D85006FCA69 /* APIHelper.swift */; };
-		D63B82961C95EB3B006FCA69 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82951C95EB3B006FCA69 /* NetworkHelper.swift */; };
-		D63EA9C91C92079500236FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA9C81C92079500236FB1 /* AppDelegate.swift */; };
+		D63B82C21C988A13006FCA69 /* FilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82BD1C988A13006FCA69 /* FilmCell.swift */; };
+		D63B82C31C988A13006FCA69 /* FilmListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82BE1C988A13006FCA69 /* FilmListController.swift */; };
+		D63B82C41C988A13006FCA69 /* FilmListController+SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82BF1C988A13006FCA69 /* FilmListController+SearchBarDelegate.swift */; };
+		D63B82C51C988A13006FCA69 /* FilmListController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82C01C988A13006FCA69 /* FilmListController+UITableViewDataSource.swift */; };
+		D63B82C61C988A13006FCA69 /* FilmListController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82C11C988A13006FCA69 /* FilmListController+UITableViewDelegate.swift */; };
+		D63B82C81C988A3D006FCA69 /* FilmDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82C71C988A3D006FCA69 /* FilmDetailController.swift */; };
+		D63B82CC1C988A50006FCA69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82C91C988A50006FCA69 /* AppDelegate.swift */; };
+		D63B82CD1C988A50006FCA69 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82CA1C988A50006FCA69 /* Constant.swift */; };
+		D63B82CE1C988A50006FCA69 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82CB1C988A50006FCA69 /* FilmModel.swift */; };
+		D63B82D31C988A7B006FCA69 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82D01C988A7B006FCA69 /* APIHelper.swift */; };
+		D63B82D41C988A7B006FCA69 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82D11C988A7B006FCA69 /* JSONHelper.swift */; };
+		D63B82D51C988A7B006FCA69 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63B82D21C988A7B006FCA69 /* NetworkHelper.swift */; };
 		D63EA9CE1C92079500236FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D63EA9CC1C92079500236FB1 /* Main.storyboard */; };
 		D63EA9D01C92079500236FB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D63EA9CF1C92079500236FB1 /* Assets.xcassets */; };
 		D63EA9D31C92079500236FB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D63EA9D11C92079500236FB1 /* LaunchScreen.storyboard */; };
-		D63EA9DB1C92FA0100236FB1 /* FilmListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA9DA1C92FA0100236FB1 /* FilmListController.swift */; };
-		D63EA9DF1C92FCA500236FB1 /* FilmDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA9DE1C92FCA500236FB1 /* FilmDetailController.swift */; };
-		D63EA9E11C92FCD000236FB1 /* FilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA9E01C92FCD000236FB1 /* FilmCell.swift */; };
-		D63EA9E41C92FFBE00236FB1 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63EA9E31C92FFBE00236FB1 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6B1F3BF8C03AEF1C35A429BE /* Pods-Flickr Client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr Client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flickr Client/Pods-Flickr Client.debug.xcconfig"; sourceTree = "<group>"; };
 		840A028CDADDADA7BA12EC12 /* Pods_Flickr_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flickr_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D63B828F1C93DB1E006FCA69 /* JSONHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
-		D63B82911C93DB62006FCA69 /* FilmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
-		D63B82931C944D85006FCA69 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
-		D63B82951C95EB3B006FCA69 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		D63B82BD1C988A13006FCA69 /* FilmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilmCell.swift; path = "film list/FilmCell.swift"; sourceTree = "<group>"; };
+		D63B82BE1C988A13006FCA69 /* FilmListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilmListController.swift; path = "film list/FilmListController.swift"; sourceTree = "<group>"; };
+		D63B82BF1C988A13006FCA69 /* FilmListController+SearchBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FilmListController+SearchBarDelegate.swift"; path = "film list/FilmListController+SearchBarDelegate.swift"; sourceTree = "<group>"; };
+		D63B82C01C988A13006FCA69 /* FilmListController+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FilmListController+UITableViewDataSource.swift"; path = "film list/FilmListController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		D63B82C11C988A13006FCA69 /* FilmListController+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FilmListController+UITableViewDelegate.swift"; path = "film list/FilmListController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		D63B82C71C988A3D006FCA69 /* FilmDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilmDetailController.swift; path = "film detail/FilmDetailController.swift"; sourceTree = "<group>"; };
+		D63B82C91C988A50006FCA69 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = configuration/AppDelegate.swift; sourceTree = "<group>"; };
+		D63B82CA1C988A50006FCA69 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constant.swift; path = configuration/Constant.swift; sourceTree = "<group>"; };
+		D63B82CB1C988A50006FCA69 /* FilmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilmModel.swift; path = configuration/FilmModel.swift; sourceTree = "<group>"; };
+		D63B82D01C988A7B006FCA69 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHelper.swift; path = utils/APIHelper.swift; sourceTree = "<group>"; };
+		D63B82D11C988A7B006FCA69 /* JSONHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONHelper.swift; path = utils/JSONHelper.swift; sourceTree = "<group>"; };
+		D63B82D21C988A7B006FCA69 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkHelper.swift; path = utils/NetworkHelper.swift; sourceTree = "<group>"; };
 		D63EA9C51C92079500236FB1 /* Flickr Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D63EA9C81C92079500236FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D63EA9CD1C92079500236FB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D63EA9CF1C92079500236FB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D63EA9D21C92079500236FB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D63EA9D41C92079500236FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D63EA9DA1C92FA0100236FB1 /* FilmListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilmListController.swift; path = ../FilmListController.swift; sourceTree = "<group>"; };
-		D63EA9DE1C92FCA500236FB1 /* FilmDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmDetailController.swift; sourceTree = "<group>"; };
-		D63EA9E01C92FCD000236FB1 /* FilmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmCell.swift; sourceTree = "<group>"; };
-		D63EA9E31C92FFBE00236FB1 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DB2728687FA0E63A2686D671 /* Pods-Flickr Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr Client.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flickr Client/Pods-Flickr Client.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +77,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D63B82CF1C988A6C006FCA69 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				D63B82D01C988A7B006FCA69 /* APIHelper.swift */,
+				D63B82D11C988A7B006FCA69 /* JSONHelper.swift */,
+				D63B82D21C988A7B006FCA69 /* NetworkHelper.swift */,
+			);
+			name = helper;
+			sourceTree = "<group>";
+		};
 		D63EA9BC1C92079500236FB1 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +108,7 @@
 		D63EA9C71C92079500236FB1 /* Flickr Client */ = {
 			isa = PBXGroup;
 			children = (
+				D63B82CF1C988A6C006FCA69 /* helper */,
 				D63EA9E21C92FF9B00236FB1 /* configuration */,
 				D63EA9DD1C92FC9300236FB1 /* film detail */,
 				D63EA9DC1C92FC8100236FB1 /* film list */,
@@ -103,8 +120,11 @@
 		D63EA9DC1C92FC8100236FB1 /* film list */ = {
 			isa = PBXGroup;
 			children = (
-				D63EA9DA1C92FA0100236FB1 /* FilmListController.swift */,
-				D63EA9E01C92FCD000236FB1 /* FilmCell.swift */,
+				D63B82BD1C988A13006FCA69 /* FilmCell.swift */,
+				D63B82BE1C988A13006FCA69 /* FilmListController.swift */,
+				D63B82BF1C988A13006FCA69 /* FilmListController+SearchBarDelegate.swift */,
+				D63B82C01C988A13006FCA69 /* FilmListController+UITableViewDataSource.swift */,
+				D63B82C11C988A13006FCA69 /* FilmListController+UITableViewDelegate.swift */,
 			);
 			name = "film list";
 			sourceTree = "<group>";
@@ -112,7 +132,7 @@
 		D63EA9DD1C92FC9300236FB1 /* film detail */ = {
 			isa = PBXGroup;
 			children = (
-				D63EA9DE1C92FCA500236FB1 /* FilmDetailController.swift */,
+				D63B82C71C988A3D006FCA69 /* FilmDetailController.swift */,
 			);
 			name = "film detail";
 			sourceTree = "<group>";
@@ -120,15 +140,12 @@
 		D63EA9E21C92FF9B00236FB1 /* configuration */ = {
 			isa = PBXGroup;
 			children = (
+				D63B82C91C988A50006FCA69 /* AppDelegate.swift */,
+				D63B82CA1C988A50006FCA69 /* Constant.swift */,
+				D63B82CB1C988A50006FCA69 /* FilmModel.swift */,
 				D63EA9CF1C92079500236FB1 /* Assets.xcassets */,
 				D63EA9D41C92079500236FB1 /* Info.plist */,
 				D63EA9CC1C92079500236FB1 /* Main.storyboard */,
-				D63EA9C81C92079500236FB1 /* AppDelegate.swift */,
-				D63EA9E31C92FFBE00236FB1 /* Constant.swift */,
-				D63B828F1C93DB1E006FCA69 /* JSONHelper.swift */,
-				D63B82911C93DB62006FCA69 /* FilmModel.swift */,
-				D63B82931C944D85006FCA69 /* APIHelper.swift */,
-				D63B82951C95EB3B006FCA69 /* NetworkHelper.swift */,
 			);
 			name = configuration;
 			sourceTree = "<group>";
@@ -255,15 +272,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D63EA9C91C92079500236FB1 /* AppDelegate.swift in Sources */,
-				D63B82961C95EB3B006FCA69 /* NetworkHelper.swift in Sources */,
-				D63EA9E11C92FCD000236FB1 /* FilmCell.swift in Sources */,
-				D63EA9E41C92FFBE00236FB1 /* Constant.swift in Sources */,
-				D63B82901C93DB1E006FCA69 /* JSONHelper.swift in Sources */,
-				D63B82941C944D85006FCA69 /* APIHelper.swift in Sources */,
-				D63B82921C93DB62006FCA69 /* FilmModel.swift in Sources */,
-				D63EA9DF1C92FCA500236FB1 /* FilmDetailController.swift in Sources */,
-				D63EA9DB1C92FA0100236FB1 /* FilmListController.swift in Sources */,
+				D63B82C61C988A13006FCA69 /* FilmListController+UITableViewDelegate.swift in Sources */,
+				D63B82C31C988A13006FCA69 /* FilmListController.swift in Sources */,
+				D63B82C21C988A13006FCA69 /* FilmCell.swift in Sources */,
+				D63B82CD1C988A50006FCA69 /* Constant.swift in Sources */,
+				D63B82D51C988A7B006FCA69 /* NetworkHelper.swift in Sources */,
+				D63B82CE1C988A50006FCA69 /* FilmModel.swift in Sources */,
+				D63B82C51C988A13006FCA69 /* FilmListController+UITableViewDataSource.swift in Sources */,
+				D63B82CC1C988A50006FCA69 /* AppDelegate.swift in Sources */,
+				D63B82C81C988A3D006FCA69 /* FilmDetailController.swift in Sources */,
+				D63B82D41C988A7B006FCA69 /* JSONHelper.swift in Sources */,
+				D63B82D31C988A7B006FCA69 /* APIHelper.swift in Sources */,
+				D63B82C41C988A13006FCA69 /* FilmListController+SearchBarDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
