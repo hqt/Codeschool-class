@@ -8,12 +8,12 @@
 
 import UIKit
 
-class Filter: NSObject {
+struct Filter {
     let label: String
-    let value: String
-    let selected: Bool
+    let value: NSObject
+    var selected: Bool
     
-    init(label: String, value: String, selected: Bool) {
+    init(label: String, value: NSObject, selected: Bool = false) {
         self.label = label
         self.value = value
         self.selected = selected

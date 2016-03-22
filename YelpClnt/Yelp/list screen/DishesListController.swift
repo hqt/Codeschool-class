@@ -10,9 +10,9 @@ import UIKit
 import AFNetworking
 
 class DishesListController: UIViewController {
-
+    
     @IBOutlet weak var dishesTableView: UITableView!
-
+    
     var searchBar: UISearchBar!
     var searchController: UISearchController!
     
@@ -20,25 +20,21 @@ class DishesListController: UIViewController {
     
     var businesses: [Business] = []
     
+    var keyword: String!
+    
+    var filterCategories: [FilterGroup]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
+        // loading default configuration when just start app
+        filterCategories = FilterFactory.FilterList
+        
         setUpLoadingBar()
         
         setUpSearchView()
         
         setUpTableData()
-        
-        /* Example of Yelp search with more search options specified
-        Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
-        self.businesses = businesses
-        
-        for business in businesses {
-        print(business.name!)
-        print(business.address!)
-        }
-        }
-        */
     }
     
     func setUpLoadingBar() {
@@ -71,30 +67,36 @@ class DishesListController: UIViewController {
         dishesTableView.rowHeight = UITableViewAutomaticDimension
         dishesTableView.estimatedRowHeight = 120
         
-        
-        Business.searchWithTerm("Thai", completion: {
-            (businesses: [Business]!, error: NSError!) -> Void in
-                self.businesses = businesses
-            
-                for business in businesses {
-                    print(business.name!)
-                    print(business.address!)
-                }
-            
-                self.dishesTableView.reloadData()
-            
-                // remove loading
-                self.loadingControl.stopAnimating()
-            }
-        )
+        keyword = "Thai"
+        search()
     }
     
+    func search() {
+        FilterFactory.search(keyword, filters: filterCategories, callback: {
+            (businesses: [Business]!, error: NSError!) -> Void in
+            self.businesses = businesses
+            self.dishesTableView.reloadData()
+            // remove loading
+            self.loadingControl.stopAnimating()
+        })
+        
+        
+//        YelpClient.sharedInstance.searchWithTerm(keyword, completion: {
+//            (businesses: [Business]!, error: NSError!) -> Void in
+//            self.businesses = businesses
+//            self.dishesTableView.reloadData()
+//            // remove loading
+//            self.loadingControl.stopAnimating()
+//        })
+    }
     
-     // MARK: - Navigation
+    // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let navigationController = segue.destinationViewController as! UINavigationController
         let preferenceController = navigationController.viewControllers[0] as! PreferenceViewController
         preferenceController.delegate = self
+        // because struct. in fact this is a new copy
+        preferenceController.filterCategories = filterCategories
     }
 }
 
@@ -114,7 +116,11 @@ extension DishesListController: UITableViewDataSource {
         cell.categoriesTextView.text = dish.categories
         cell.priceTextView.text = dish.distance
         cell.ratingImageView.setImageWithURL(dish.ratingImageURL!)
-        cell.dishImageView.setImageWithURL(dish.imageURL!)
+    
+        if let url = dish.imageURL {
+            cell.dishImageView.setImageWithURL(url)
+        }
+        
         return cell
     }
 }
@@ -128,8 +134,8 @@ extension DishesListController: UITableViewDelegate {
 extension DishesListController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         if let searchText =  searchController.searchBar.text {
-            
-            dishesTableView.reloadData()
+            keyword = searchText
+            search()
         }
     }
 }
@@ -141,7 +147,13 @@ extension DishesListController: UISearchBarDelegate {
 
 // MARK: FilterDone Delegate
 extension DishesListController: FilterDoneDelegate {
-    func filterDone() {
+    func filterDone(filterCategories: [FilterGroup]) {
+        // reset table first
+        businesses = []
+        dishesTableView.reloadData()
         
+        // update value. we're using struct -> value will be copied
+        self.filterCategories = filterCategories
+        search()
     }
 }

@@ -9,5 +9,5 @@
 import UIKit
 
 protocol FilterDoneDelegate {
-    func filterDone()
+    func filterDone(filters: [FilterGroup])
 }
