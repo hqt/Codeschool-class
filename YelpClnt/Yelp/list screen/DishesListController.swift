@@ -79,15 +79,6 @@ class DishesListController: UIViewController {
             // remove loading
             self.loadingControl.stopAnimating()
         })
-        
-        
-//        YelpClient.sharedInstance.searchWithTerm(keyword, completion: {
-//            (businesses: [Business]!, error: NSError!) -> Void in
-//            self.businesses = businesses
-//            self.dishesTableView.reloadData()
-//            // remove loading
-//            self.loadingControl.stopAnimating()
-//        })
     }
     
     // MARK: - Navigation
@@ -155,5 +146,11 @@ extension DishesListController: FilterDoneDelegate {
         // update value. we're using struct -> value will be copied
         self.filterCategories = filterCategories
         search()
+    }
+}
+
+// MARK: UIScrollView Delegate
+extension DishesListController: UIScrollViewDelegate {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
     }
 }
