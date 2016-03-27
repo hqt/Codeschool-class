@@ -51,7 +51,8 @@ class PostTweetController: UIViewController {
     
     @IBAction func saveTweet(sender: AnyObject) {
         if let replyTweet = replyTweet {
-            TwitterClient.sharedInstance.reply(contentTextField.text!, repliedTweet: replyTweet)
+            let replyText = "@\(replyTweet.user.name!) \(contentTextField.text)"
+            TwitterClient.sharedInstance.reply(replyText, repliedTweet: replyTweet)
         } else {
             TwitterClient.sharedInstance.tweet(contentTextField.text!)
         }
